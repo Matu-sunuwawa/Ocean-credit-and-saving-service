@@ -65,6 +65,8 @@ public class Depwithsaving extends HttpServlet {
 				}		
 
 		}
+		
+		con.close();
 	} 
 	catch(Exception e)
 	{

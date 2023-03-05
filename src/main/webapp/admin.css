@@ -45,7 +45,6 @@ input[type=number]{
     display: flex;
     box-sizing: border-box;
 }
-/*
 input[type=password]{
     width: 100%;
     margin-bottom: 4px;
@@ -53,7 +52,6 @@ input[type=password]{
     display: flex;
     box-sizing: border-box;
 }
-*/
 input[type=submit]{
     padding: 12px 20px;
     display: flex;

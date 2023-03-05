@@ -55,7 +55,7 @@ public class Creditacc extends HttpServlet {
 				{
 					out.println("..............................BALANCE CAN NOT BE NEGATIVE!!!");
 				}
-				st.close();
+
 				con.close();
 				
 			}
@@ -77,7 +77,7 @@ public class Creditacc extends HttpServlet {
 //		}
 		else if("Cancel".equals(op))
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("selectacc.jsp");
 			rd.forward(request, response);
 		}
 	}

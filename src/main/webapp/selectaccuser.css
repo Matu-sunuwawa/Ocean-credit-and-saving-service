@@ -1,4 +1,3 @@
-@charset "ISO-8859-1";
 :root{
     --black: rgba(0, 0, 0, 1);
     --white: rgb(255, 255, 255, 1);
@@ -14,7 +13,7 @@ html{
 }
 
 body{
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),url(image/Credit_1.png);
+    /* background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),url(image/electric1.png); */
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -35,57 +34,21 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: auto;
 }
-.select .selection h2{
-	color: var(--orange);
-}
 .select .form{
     /* background-color: #f2f2f2;
     padding: 20px; */
     margin-top: 30px;
 }
 input[type=submit]{
-    padding: 10px 5px;
+    padding: 10px 10px;
     margin: 0 10px;
-    /* margin-top: 20px; */
+    margin-top: 20px;
     background-color: transparent;
     border-radius: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    display: flex;
-    box-sizing: border-box;
     /* display: flex;
     box-sizing: border-box; */
-}
-.select .form .wdraw{
-    display: flex;
-    box-sizing: border-box;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-.select .form .dpost{
-    display: flex;
-    box-sizing: border-box;
-    /* padding-left: 10px; */
-    padding-bottom: 30px;
-}
-.select .form .view input[type=submit]{
-    padding: 10px 13px;
-}
-.select .form .dpost input[type=submit]{
-    /* padding-left: 20px; */
-    padding: 0 13px;
-    /* text-align: center; */
-}
-input[type=number]{
-    width: 100%;
-    /* margin: 8px 0; */
-    padding: 10px 20px;
-    margin-left: 30px;
-    display: flex;
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 5px;
-
 }
 input[type=submit]:hover{
     background-color: var(--orange);

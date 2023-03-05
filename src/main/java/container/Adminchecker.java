@@ -17,9 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Servlet implementation class ServletAct
+ * Servlet implementation class Adminchecker
  */
-public class ServletAct extends HttpServlet {
+public class Adminchecker extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
@@ -29,28 +29,16 @@ public class ServletAct extends HttpServlet {
 			response.setContentType("text/html");
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/advproject","root","");
-			int n= Integer.parseInt(request.getParameter("uname"));
-			int p= Integer.parseInt(request.getParameter("pass"));
-//			int na= Integer.parseInt(request.getParameter("uname"));
-//			int pa= Integer.parseInt(request.getParameter("pass"));
-			PreparedStatement ps=con.prepareStatement("select accno from login where accno=? and pinno=?");
-			PreparedStatement ps2=con.prepareStatement("select accnoa from Admins where accnoa=? and pinnoa=?");
+			int n= Integer.parseInt(request.getParameter("aname"));
+			String p= request.getParameter("apass");
+			PreparedStatement ps=con.prepareStatement("select uname from Admins where uname=? and upass=?");
 			ps.setInt(1, n);
-			ps.setInt(2, p);
-			ps2.setInt(1, n);
-			ps2.setInt(2, p);
-			ResultSet rs1=ps.executeQuery();
-			ResultSet rs2=ps2.executeQuery();
-			if(rs1.next()) {
+			ps.setString(2, p);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()) {
 				HttpSession session=request.getSession();
 				session.setAttribute("username", p);
-				RequestDispatcher rd=request.getRequestDispatcher("selectaccuser.jsp");
-				rd.forward(request, response);
-			}
-			if(rs2.next()) {
-				HttpSession session=request.getSession();
-				session.setAttribute("username", p);
-				RequestDispatcher rd=request.getRequestDispatcher("admin.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("selectacc.jsp");
 				rd.forward(request, response);
 			}
 			else {
@@ -61,7 +49,7 @@ public class ServletAct extends HttpServlet {
 			
 			con.close();
 //			-----------------------------  ,,  --------------------------------------
-
+			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -70,10 +58,7 @@ public class ServletAct extends HttpServlet {
 		
 		
 	}
-
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
 
+	}
 }

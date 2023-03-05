@@ -10,22 +10,26 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * Servlet implementation class Savingacc
+ * Servlet implementation class Savingaccuser
  */
-public class Savingacc extends HttpServlet {
+public class Savingaccuser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public Savingacc() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Savingaccuser() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/html");
@@ -48,14 +52,14 @@ public class Savingacc extends HttpServlet {
 				if(amt==0)
 				{
 						out.println("YOUR SAVING AMOUNT IS: $"+amt +"<br><br>");
-						out.println("<a href=savingacc.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
+						out.println("<a href=savingaccuser.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
 						
 
 				}
 				else if(amt>0)
 				{
 						out.println("YOUR SAVING AMOUNT IS: $"+amt +"<br><br>");
-						out.println("<a href=savingacc.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
+						out.println("<a href=savingaccuser.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
 						
 				}
 				else if(amt<0)
@@ -84,14 +88,9 @@ public class Savingacc extends HttpServlet {
 //		}
 		else if("Cancel".equals(op))
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("selectacc.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("selectaccuser.jsp");
 			rd.forward(request, response);
 		}
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
 
 }

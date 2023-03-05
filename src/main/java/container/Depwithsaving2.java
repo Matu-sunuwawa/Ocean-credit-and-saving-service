@@ -48,7 +48,7 @@ public class Depwithsaving2 extends HttpServlet {
 		}
 		else if(with<0)
 		{
-			out1.println("THERE IS NO SUCH CREDIT  INTERRUPTED!!");
+			out1.println("THERE IS NO SUCH WITHDRAW  INTERRUPTED!!");
 			out1.println("...............................PLEASE DO NOT INTERRUPTE THE SYSTEM!!!"+"<br><br>");
 			out1.println("<a href=savingacc.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
 		}
@@ -75,6 +75,8 @@ public class Depwithsaving2 extends HttpServlet {
 				}		
 
 		}
+		
+		con.close();
 	} 
 	catch(Exception e)
 	{

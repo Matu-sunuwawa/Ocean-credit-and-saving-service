@@ -10,22 +10,26 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * Servlet implementation class Savingacc
+ * Servlet implementation class Creditaccuser
  */
-public class Savingacc extends HttpServlet {
+public class Creditaccuser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public Savingacc() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Creditaccuser() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/html");
@@ -35,7 +39,7 @@ public class Savingacc extends HttpServlet {
 		{
 			try 
 			{
-				String sql="select * from saving";
+				String sql="select * from credit";
 				
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/advproject","root","");
@@ -47,22 +51,19 @@ public class Savingacc extends HttpServlet {
 				
 				if(amt==0)
 				{
-						out.println("YOUR SAVING AMOUNT IS: $"+amt +"<br><br>");
-						out.println("<a href=savingacc.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
-						
+					out.println("YOUR CREDIT AMOUNT IS: $"+(-1)*(amt) +"<br><br>");
+					out.println("<a href=creditaccuser.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
+				}
+				else if((-1)*(amt)>0)
+				{
+					out.println("YOUR CREDIT AMOUNT IS: $" +(-1)*(amt) +"<br><br>");
+					out.println("<a href=creditaccuser.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
+				}
+				else if((-1)*(amt)<0)
+				{
+					out.println("..............................BALANCE CAN NOT BE NEGATIVE!!!");
+				}
 
-				}
-				else if(amt>0)
-				{
-						out.println("YOUR SAVING AMOUNT IS: $"+amt +"<br><br>");
-						out.println("<a href=savingacc.jsp style=text-decoration:none;><font color=orange>CONTINUE......</a>");
-						
-				}
-				else if(amt<0)
-				{
-					out.println("...............................BALANCE CAN NOT BE NEGATIVE!!!");
-				}
-				
 				con.close();
 				
 			}
@@ -84,14 +85,9 @@ public class Savingacc extends HttpServlet {
 //		}
 		else if("Cancel".equals(op))
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("selectacc.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("selectaccuser.jsp");
 			rd.forward(request, response);
 		}
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
 
 }

@@ -69,6 +69,8 @@ public class Depwithcredit2 extends HttpServlet {
 				}		
 
 		}
+		
+		con.close();
 	} 
 	catch(Exception e)
 	{

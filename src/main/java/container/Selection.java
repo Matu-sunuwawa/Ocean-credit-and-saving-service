@@ -43,6 +43,7 @@ public class Selection extends HttpServlet {
 		}
 		else if("Cancel".equals(op))
 		{
+//			op = null; //logout test
 			RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 		}
